@@ -1,0 +1,23 @@
+<!-- <p>This is where you can add or edit a book</p>
+<p>For now, only adding a book will work</p> -->
+
+<div><img ng-if="editBookCtrl.imageURL" ng-src="{{editBookCtrl.imageURL}}" /></div>
+<div>
+  <input id="isbnInput" ng-model="editBookCtrl.isbn" ng-blur="editBookCtrl.searchISBN(editBookCtrl.isbn)" placeholder="ISBN" />
+  <input ng-model="editBookCtrl.title" placeholder="Title" />
+  <input ng-model="editBookCtrl.authorFirst" placeholder="Author First" />
+  <input ng-model="editBookCtrl.authorLast" placeholder="Author Last" />
+  <input ng-model="editBookCtrl.length" placeholder="# of Pages" />
+  <input ng-model="editBookCtrl.imageURL" placeholder="Image URL" />
+  <input type="checkbox" ng-model="editBookCtrl.status">
+  finished
+  <p>format:</p>
+  <input type="radio" ng-model="editBookCtrl.format" value="paperback">
+  <label>paperback</label>
+  <input type="radio" ng-model="editBookCtrl.format" value="hardback">
+  <label>hardback</label>
+  <div class="button" ng-click="editBookCtrl.addBook(editBookCtrl.authorFirst,
+  editBookCtrl.authorLast, editBookCtrl.title, editBookCtrl.isbn, editBookCtrl.length,
+  editBookCtrl.status, editBookCtrl.format, editBookCtrl.imageURL)">Save</div>
+</div>
+<a ng-if="editBookCtrl.amazonURL" target="_blank" href="{{editBookCtrl.amazonURL}}">{{editBookCtrl.amazonURL}}</a>

@@ -1,0 +1,19 @@
+<p>This is the viewbooks view.</p>
+
+<div ng-init="orderbyvalue = 'title'">
+  <input type="radio" ng-model="orderbyvalue" value="'title'"><label>Title</label>
+  <input type="radio" ng-model="orderbyvalue" value="'authorLast'"><label>Author (Last)</label>
+  <input type="radio" ng-model="orderbyvalue" value="'authorFirst'"><label>Author (First)</label>
+  <input type="radio" ng-model="orderbyvalue" value="length"><label>Length</label>
+  <input ng-init="reverse = false" type="checkbox" ng-model="reverse"><label>Reverse</label>
+</div>
+
+<div>
+  <div class="side-by-side" ng-repeat="book in viewbooks.myBooks | orderBy:orderbyvalue:reverse">
+    <img class="bookCoverList" ng-src="{{book.imageURL}}" />
+    <div>
+      <p>{{book.title}}</p>
+      <p>{{book.authorFirst}} {{book.authorLast}} ({{book.length}} pages)</p>
+    </div>
+  </div>
+</div>

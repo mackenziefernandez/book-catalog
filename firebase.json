@@ -1,0 +1,9 @@
+{
+  "firebase": "mackenzies-books",
+  "public": "dist",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

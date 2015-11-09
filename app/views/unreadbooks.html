@@ -1,0 +1,12 @@
+<p>This is the unreadbooks view.</p>
+
+<div>
+  <div class="side-by-side" ng-repeat="book in unreadbooks.myBooks">
+    <img class="bookCoverList" ng-src="{{book.imageURL}}" />
+    <div>
+      <p>{{book.title}}</p>
+      <p>{{book.authorFirst}} {{book.authorLast}} ({{book.length}} pages)</p>
+    </div>
+    <div class="button" ng-click="unreadbooks.markAsRead(book.$id)">Mark as Read</div>
+  </div>
+</div>

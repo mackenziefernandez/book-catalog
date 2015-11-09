@@ -1,0 +1,21 @@
+<div class="row">
+  <div><h1 class="totalBooks">{{bkCtrl.numBooks | number}}</h1>
+    <h5>total books</h5>
+  </div>
+  <div><h1>{{bkCtrl.numRead | number}}</h1>
+    <h5>read</h5></div>
+    <div><h1>{{bkCtrl.numRead/bkCtrl.numBooks*100 | number}}%</h1>
+      </div>
+      <div class="progress" style="height:auto;">
+  <div class="progress-bar" role="progressbar" aria-valuenow="{{bkCtrl.numRead/bkCtrl.numBooks*100 | number}}"
+  aria-valuemin="0" aria-valuemax="100" style="width:{{bkCtrl.numRead/bkCtrl.numBooks*100 | number}}%">
+  <!-- <img src="../images/Bookshelf-white-background.png" style="width:100%;"/> -->
+    <!-- <span class="sr-only"></span> -->
+  </div>
+</div>
+  <div><h1>{{bkCtrl.numPages | number}}</h1><h5>pages</h5><p>(Roughly {{bkCtrl.numPages*250 | number}} words)</p>
+  </div>
+  <div><h1>{{bkCtrl.numPages/bkCtrl.numBooks | number:0}}</h1><h5>pages per book on average</h5>
+  </div>
+  <div><p>"{{bkCtrl.quote.quote}}"</p> <p>-{{bkCtrl.quote.source}}</p></div>
+</div>
