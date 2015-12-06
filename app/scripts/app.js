@@ -45,6 +45,11 @@ angular
         controller: 'UnreadbooksCtrl',
         controllerAs: 'unreadbooks'
       })
+      .when('/reading-stats', {
+        templateUrl: 'views/reading-stats.html',
+        controller: 'ReadingStatsCtrl',
+        controllerAs: 'readingStats'
+      })
       .otherwise({
         redirectTo: '/'
       });

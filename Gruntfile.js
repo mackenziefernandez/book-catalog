@@ -26,7 +26,20 @@ module.exports = function (grunt) {
 
   // Define the configuration for all the tasks
   grunt.initConfig({
-    
+    divshot: {
+  server: {
+    options: {
+      port: 9000,
+      hostname: 'localhost',
+      root: '<%= yeoman.app %>',
+      clean_urls: true,
+      routes: {
+        '**/*.html': 'index.html'
+      },
+      cache_control: {}
+    }
+  }
+},
     // Project settings
     config: config,
 

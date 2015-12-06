@@ -62,7 +62,7 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 800px;
   }
 
   /* Remove the padding we set earlier */
@@ -93,5 +93,23 @@ body {
   max-height: 200px;
 }
 .totalBooks {
-  
+  color: black;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+.boo {
+  color:red;
+}
+.yay {
+  color:green;
+}
+.addBookCard {
+  background-color: #D4B184;
+  padding: 2vw;
+  border-radius: 25px;
+  background: -webkit-linear-gradient(#864503, #D4B184, #864503);
+  background: -o-linear-gradient(#864503, #D4B184, #864503);
+  background: -moz-linear-gradient(#864503, #D4B184, #864503);
+  background: linear-gradient(#864503, #D4B184, #864503);
 }

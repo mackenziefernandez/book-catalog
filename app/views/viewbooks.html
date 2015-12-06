@@ -9,11 +9,12 @@
 </div>
 
 <div>
-  <div class="side-by-side" ng-repeat="book in viewbooks.myBooks | orderBy:orderbyvalue:reverse">
+  <!-- <div class="side-by-side" ng-repeat="book in viewbooks.myBooks | orderBy:orderbyvalue:reverse">
     <img class="bookCoverList" ng-src="{{book.imageURL}}" />
     <div>
       <p>{{book.title}}</p>
       <p>{{book.authorFirst}} {{book.authorLast}} ({{book.length}} pages)</p>
     </div>
-  </div>
+  </div> -->
+  <book-display ng-repeat="book in viewbooks.myBooks | orderBy:orderbyvalue:reverse"></book-display>
 </div>

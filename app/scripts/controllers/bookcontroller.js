@@ -23,10 +23,16 @@ angular.module('bookCatalogApp')
     });
     booksRead.$loaded().then(function() {
       bkCtrl.numRead = booksRead.length;
+      bkCtrl.numReadPages = _.sum(_.pluck(booksRead, 'length'));
     });
     books.$loaded().then(function() {
       bkCtrl.numBooks = books.length;
       bkCtrl.numPages = _.sum(_.pluck(books, 'length'));
+    });
+
+    var hardbacks = $firebaseArray(myRef.child('books').orderByChild('format').equalTo('hardback'));
+    hardbacks.$loaded().then(function() {
+      bkCtrl.numHardbacks = hardbacks.length;
     });
 
   });

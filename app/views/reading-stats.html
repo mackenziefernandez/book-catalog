@@ -1,0 +1,11 @@
+<p>This is the reading-stats view.</p>
+<h1>This month</h1>
+<h2 ng-class="{'yay' : readingStats.booksThisMonthRef.length>readingStats.booksThisMonthAdded.length, 'boo':readingStats.booksThisMonthRef.length<=readingStats.booksThisMonthAdded.length}">
+  ({{readingStats.booksThisMonthRef.length}} completed, {{readingStats.booksThisMonthAdded.length}} added)
+</h2>
+<book-display ng-repeat="book in readingStats.booksThisMonthRef"></book-display>
+<h1>Last month</h1>
+<h2 ng-class="{'yay' : readingStats.booksLastMonthRef.length>readingStats.booksLastMonthAdded.length, 'boo':readingStats.booksLastMonthRef.length<=readingStats.booksLastMonthAdded.length}">
+  ({{readingStats.booksLastMonthRef.length}} completed, {{readingStats.booksLastMonthAdded.length}} added)
+</h2>
+<book-display ng-repeat="book in readingStats.booksLastMonthRef"></book-display>
