@@ -19,7 +19,6 @@ body {
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
 }
 /* Make the masthead heading the same height as the navigation */
@@ -104,12 +103,41 @@ body {
 .yay {
   color:green;
 }
-.addBookCard {
-  background-color: #D4B184;
-  padding: 2vw;
-  border-radius: 25px;
-  background: -webkit-linear-gradient(#864503, #D4B184, #864503);
-  background: -o-linear-gradient(#864503, #D4B184, #864503);
-  background: -moz-linear-gradient(#864503, #D4B184, #864503);
-  background: linear-gradient(#864503, #D4B184, #864503);
+.headerImage {
+  height: 100%;
+}
+/*---------- Underlined Input ----------*/
+.underlineInput {
+  border: none;
+  border-bottom: 2px solid black;
+  margin: 10px;
+}
+.underlineInput:focus {
+  outline: none;
+}
+/*---------- Buttons ----------*/
+.button {
+  border-radius: 5px;
+  background: #1ABC9C;
+  color: #fff;
+  box-shadow: 0 6px #16A085;
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 15px 20px;
+  display: inline-block;
+  margin: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+}
+.button:hover {
+  box-shadow: 0 4px #16A085;
+  top: 2px;
 }

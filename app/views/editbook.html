@@ -2,24 +2,24 @@
 <p>For now, only adding a book will work</p> -->
 <div class="side-by-side">
   <div style="width: 15vw;"><img ng-if="editBookCtrl.imageURL" ng-src="{{editBookCtrl.imageURL}}" /></div>
-  <div class="addBookCard">
+  <div>
     <div>
-      <input id="isbnInput" ng-model="editBookCtrl.isbn" ng-blur="editBookCtrl.searchISBN(editBookCtrl.isbn)" placeholder="ISBN" />
+      <input class="underlineInput" id="{{isbn}}Input" ng-model="editBookCtrl.isbn" ng-blur="editBookCtrl.searchISBN(editBookCtrl.isbn)" placeholder="ISBN" />
     </div>
     <div>
-      <input ng-model="editBookCtrl.title" placeholder="Title" />
-
-      <input ng-model="editBookCtrl.authorFirst" placeholder="Author First" />
-      <input ng-model="editBookCtrl.authorLast" placeholder="Author Last" />
+      <input class="underlineInput" ng-model="editBookCtrl.title" placeholder="Title" style="width:320px;" />
     </div>
       <div>
-        <input ng-model="editBookCtrl.length" placeholder="# of Pages" />
-        <input ng-model="editBookCtrl.imageURL" placeholder="Image URL" />
+      <input class="underlineInput" ng-model="editBookCtrl.authorFirst" placeholder="Author First" />
+      <input class="underlineInput" ng-model="editBookCtrl.authorLast" placeholder="Author Last" />
+    </div>
+      <div>
+        <input class="underlineInput" ng-model="editBookCtrl.length" placeholder="# of Pages" style="width:80px;" />
+        <input class="underlineInput" ng-model="editBookCtrl.imageURL" placeholder="Image URL" style="width:215px;" />
       </div>
         <div>
-          <input type="checkbox" ng-model="editBookCtrl.status">
-          finished
-          <p>format:</p>
+          <input id="status" type="checkbox" ng-model="editBookCtrl.status">
+          <label for="status">finished</label>
           <input type="radio" ng-model="editBookCtrl.format" value="paperback">
           <label>paperback</label>
           <input type="radio" ng-model="editBookCtrl.format" value="hardback">

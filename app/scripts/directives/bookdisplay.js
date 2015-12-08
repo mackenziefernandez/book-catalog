@@ -10,7 +10,8 @@ angular.module('bookCatalogApp')
   .directive('bookDisplay', function () {
     return {
       replace:true,
-      template: `<div class="side-by-side"><img class="bookCoverList" ng-src="{{book.imageURL}}" />
+      template: `<div class="side-by-side">
+      <img class="bookCoverList" ng-src="{{book.imageURL}}" />
           <div>
             <p>{{book.title}}</p>
             <p>{{book.authorFirst}} {{book.authorLast}} ({{book.length}} pages)</p>
