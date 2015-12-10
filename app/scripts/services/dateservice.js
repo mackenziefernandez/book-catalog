@@ -11,7 +11,8 @@ angular.module('bookCatalogApp')
   .service('dateService', function () {
     // AngularJS will instantiate a singleton by calling "new" on this function
     this.dateToString = function(date) {
-      return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+      var day = ('0' + date.getDate()).slice(-2);
+      return `${date.getFullYear()}-${date.getMonth() + 1}-${day}`;
     }
     this.beginningOfMonth = function(date) {
       var firstDay = new Date(`${date.getFullYear()}-${date.getMonth() + 1}-1`);
