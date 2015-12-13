@@ -1,45 +1,53 @@
 <div class="row">
-  <div>
-    <h1 class="totalBooks">{{bkCtrl.numBooks | number}}</h1>
+  <div class="totalBooks">
+    <h1>{{bkCtrl.numBooks | number}}</h1>
     <h5>total books</h5>
-  </div>
-  <div><h1>{{bkCtrl.numRead | number}}</h1>
-    <h5>read</h5></div>
-    <div><h1>{{bkCtrl.numRead/bkCtrl.numBooks*100 | number}}%</h1>
-    </div>
-    <div class="progress" style="height:auto;">
-      <div class="progress-bar" role="progressbar" aria-valuenow="{{bkCtrl.numRead/bkCtrl.numBooks*100 | number}}"
-      aria-valuemin="0" aria-valuemax="100" style="width:{{bkCtrl.numRead/bkCtrl.numBooks*100 | number}}%">
-      <!-- <img src="../images/Bookshelf-white-background.png" style="width:100%;"/> -->
-      <!-- <span class="sr-only"></span> -->
-    </div>
-  </div>
-  <div>
-    <h2>Number of hardback books: {{bkCtrl.numHardbacks}}</h2>
-    <h2>Number of paperback books: {{bkCtrl.numBooks - bkCtrl.numHardbacks}}</h2>
-  </div>
-  <div><h1>{{bkCtrl.numPages | number}}</h1><h5>pages</h5>
-    <p>(Roughly {{bkCtrl.numPages*250 | number}} words)</p>
-  </div>
-  <div>{{bkCtrl.numReadPages | number}} pages read - assuming 358 wpm, that's {{(bkCtrl.numReadPages*250)/(358*60) | number}} hours spent reading (That's {{(bkCtrl.numReadPages*250)/(358*60*24) | number}} days)</div>
-  <div>
-    <h1>{{bkCtrl.numPages/bkCtrl.numBooks | number:0}}</h1>
-    <h5>pages per book on average</h5>
-  </div>
-  <div><p>"{{bkCtrl.quote.quote}}"</p> <p>-{{bkCtrl.quote.source}}</p></div>
-  <div style="margin-bottom:10vh;" ng-init="pageGoal=10000">
-    <h2>2016 Goal: Read 2,016 Pages</h2>
-    {{(358/250) | number}} pages per min => {{(358/250)*60 | number}} pages per hour
-    Estimated time remaining: {{2016/((358/250)*60) | number}} hours left
-    {{(2016/((358/250)*60)/365)*60 | number}} minutes a day
-    <h2>2016 Goal: 1 hour every day (365 hours total)</h2>
-    {{365/24 | number}} days of reading
-    <h2>2016 Goal: Read {{pageGoal | number}} Pages</h2>
-    {{(358/250) | number}} pages per min => {{(358/250)*60 | number}} pages per hour
-    Estimated time remaining: {{pageGoal/((358/250)*60) | number}} hours left
-    {{(pageGoal/((358/250)*60)/365)*60 | number}} minutes a day
-    <h2>2016 Goal: Read 100 books</h2>
-    Assuming the book average, should be roughly {{(bkCtrl.numPages/bkCtrl.numBooks)*100 | number:0}} minutes
-    Which equates to roughly {{(bkCtrl.numPages/bkCtrl.numBooks)*100/((358/250)*60) | number:0}} hours
+    <!-- <img src="../images/big-beautiful-libraries-31.jpg" /> -->
   </div>
 </div>
+<slick settings="bkCtrl.slickConfig" init-onload=true data="bkCtrl">
+  <div ng-repeat="book in bkCtrl.bookSample"><img class="carouselImage" ng-src="{{book.imageURL}}" /></div>
+</slick>
+<div>
+  <h1>{{bkCtrl.numRead | number}}</h1>
+  <h5>read</h5></div>
+  <!-- <div>
+    <h1>{{bkCtrl.numRead/bkCtrl.numBooks*100 | number}}%</h1>
+  </div> -->
+  <div class="progress">
+  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{bkCtrl.numRead/bkCtrl.numBooks*100 | number:0}}" aria-valuemin="0" aria-valuemax="100" style="width: {{bkCtrl.numRead/bkCtrl.numBooks*100 | number}}%;">
+    {{bkCtrl.numRead/bkCtrl.numBooks*100 | number}}%
+  </div>
+</div>
+  <div>
+    <h2>{{bkCtrl.numHardbacks}} Hardbacks</h2>
+    <h2>{{bkCtrl.numBooks - bkCtrl.numHardbacks}} Paperbacks</h2>
+  </div>
+  <div class="numPages">
+    <h1>{{bkCtrl.numPages | number}}</h1><h3>pages</h3>
+    <img src="../images/open-book.png" />
+  </div>
+  <div>
+    <p>(Roughly {{bkCtrl.numPages*250 | number}} words)</p>
+    {{bkCtrl.numReadPages | number}} pages read - assuming 358 wpm, that's {{(bkCtrl.numReadPages*250)/(358*60) | number}} hours spent reading (That's {{(bkCtrl.numReadPages*250)/(358*60*24) | number}} days)</div>
+    <div>
+      <h1>{{bkCtrl.numPages/bkCtrl.numBooks | number:0}}</h1>
+      <h5>pages per book on average</h5>
+    </div>
+    <div><p>"{{bkCtrl.quote.quote}}"</p> <p>-{{bkCtrl.quote.source}}</p></div>
+    <div style="margin-bottom:10vh;" ng-init="pageGoal=10000">
+      <h2>Read 5,000 Pages in Lifetime</h2>
+      <p>Assume 100 books a year -> 1 book finished every {{365/100 | number}} days<p>
+      <p>{{5000-bkCtrl.numRead | number}} books to go<p>
+        <p>{{(5000-bkCtrl.numRead)/100 | number}} years to go<p>
+      <h2>2016 Goal: 1 hour every day (365 hours total)</h2>
+      {{365/24 | number}} days of reading
+      <h2>2016 Goal: Read {{pageGoal | number}} Pages</h2>
+      {{(358/250) | number}} pages per min => {{(358/250)*60 | number}} pages per hour
+      Estimated time remaining: {{pageGoal/((358/250)*60) | number}} hours left
+      {{(pageGoal/((358/250)*60)/365)*60 | number}} minutes a day
+      <h2>2016 Goal: Read 100 books</h2>
+      Assuming the book average, should be roughly {{(bkCtrl.numPages/bkCtrl.numBooks)*100 | number:0}} minutes
+      Which equates to roughly {{(bkCtrl.numPages/bkCtrl.numBooks)*100/((358/250)*60) | number:0}} hours
+    </div>
+  </div>

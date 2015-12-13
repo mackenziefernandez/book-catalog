@@ -1,16 +1,21 @@
-<slick settings="readingStats.slickConfig">
+<!-- <slick settings="readingStats.slickConfig">
   <div><h3>1</h3></div>
   <div><h3>2</h3></div>
   <div><h3>3</h3></div>
   <div><h3>4</h3></div>
   <div><h3>5</h3></div>
   <div><h3>6</h3></div>
-</slick>
+</slick> -->
 <h1>This month</h1>
 <h2 ng-class="{'yay' : readingStats.booksThisMonthFinished.length>readingStats.booksThisMonthAdded.length, 'boo':readingStats.booksThisMonthFinished.length<=readingStats.booksThisMonthAdded.length}">
   ({{readingStats.booksThisMonthFinished.length}} completed, {{readingStats.booksThisMonthAdded.length}} added)
 </h2>
-<book-display ng-repeat="book in readingStats.booksThisMonthFinished"></book-display>
+<slick settings="readingStats.slickConfig" init-onload=true data="readingStats">
+  <div ng-repeat="book in readingStats.booksThisMonthFinished">
+    <img class="bookCoverList" ng-src="{{book.imageURL}}" />
+  </div>
+</slick>
+<!-- <book-display ng-repeat="book in readingStats.booksThisMonthFinished"></book-display> -->
 <h1>Last month</h1>
 <h2 ng-class="{'yay' : readingStats.booksLastMonthFinished.length>readingStats.booksLastMonthAdded.length, 'boo':readingStats.booksLastMonthFinished.length<=readingStats.booksLastMonthAdded.length}">
   ({{readingStats.booksLastMonthFinished.length}} completed, {{readingStats.booksLastMonthAdded.length}} added)

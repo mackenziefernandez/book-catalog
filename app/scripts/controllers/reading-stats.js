@@ -11,15 +11,6 @@ angular.module('bookCatalogApp')
   .controller('ReadingStatsCtrl', function ($firebaseArray, dateService) {
     var myRef = new Firebase('https://mackenzies-books.firebaseio.com');
 
-    this.slickConfig = {
-        enabled: true,
-        autoplay: true,
-        draggable: false,
-        autoplaySpeed: 2000,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-    };
-
     this.booksFinished = $firebaseArray(myRef.child('books').orderByChild('dateFinished').startAt('2015-11-19'));
     // Stuff to observe reading tendencies (books finished per month, # of books read year to date)
     // stack of books to represent the # read for that month?
@@ -47,6 +38,15 @@ angular.module('bookCatalogApp')
       this.booksThisMonthFinished = _.filter(this.booksThisMonthFinished, function(book) {
         return book.dateAdded != book.dateFinished;
       });
+      this.slickConfig = {
+          enabled: true,
+          autoplay: true,
+          draggable: false,
+          autoplaySpeed: 2000,
+          slidesToShow: (this.booksThisMonthFinished.length/2),
+          slidesToScroll: 1
+      };
+      $('slick').width(135*(this.booksThisMonthFinished.length/2));
     });
 
     this.booksThisMonthAdded.$loaded().then( () => {

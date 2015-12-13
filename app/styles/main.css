@@ -81,6 +81,9 @@ body {
   }
 }
 /*---------- Main Page ----------*/
+img {
+  width: 100%;
+}
 .side-by-side {
   display: table;
 }
@@ -90,12 +93,24 @@ body {
 }
 .bookCoverList {
   max-height: 200px;
+  width: auto;
 }
 .totalBooks {
-  color: black;
-  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+  display: table;
+  margin: auto;
+}
+.totalBooks > * {
+  display: table-cell;
+  vertical-align: middle;
+}
+.totalBooks > h1 {
+  font-family: 'Montserrat';
+  font-size: 20vh;
+}
+.totalBooks > h5 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 8  vh;
+  padding: 11px;
 }
 .boo {
   color:red;
@@ -105,6 +120,23 @@ body {
 }
 .headerImage {
   height: 100%;
+  width: auto;
+}
+.numPages {
+  width: 55%;
+  text-align: right;
+  position: relative;
+}
+.numPages > h1, .numPages > h3 {
+  position: absolute;
+}
+.numPages > h1 {
+  left: 16%;
+  top: 25%;
+}
+.numPages > h3 {
+  right: 25%;
+  top: 33%;
 }
 /*---------- Underlined Input ----------*/
 .underlineInput {
@@ -140,4 +172,18 @@ body {
 .button:hover {
   box-shadow: 0 4px #16A085;
   top: 2px;
+}
+/*---------- Buttons ----------*/
+.carouselImage {
+  height:100%;
+}
+.progress {
+  height: 45px;
+  background-color: #E3F1FA;
+}
+.progress-bar {
+  font-size: 20px;
+  line-height: 45px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
 }

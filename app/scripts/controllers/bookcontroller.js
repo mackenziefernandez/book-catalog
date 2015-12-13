@@ -10,6 +10,7 @@
 angular.module('bookCatalogApp')
   .controller('BookcontrollerCtrl', function ($firebaseArray, $firebaseObject) {
     var bkCtrl = this;
+
     var myRef = new Firebase('https://mackenzies-books.firebaseio.com');
 
     var books = $firebaseArray(myRef.child('books'));
@@ -21,7 +22,16 @@ angular.module('bookCatalogApp')
     quotes.$loaded().then(function() {
       bkCtrl.quote = _.sample(quotes);
     });
-    booksRead.$loaded().then(function() {
+    booksRead.$loaded().then(() => {
+      this.slickConfig = {
+          enabled: true,
+          autoplay: true,
+          draggable: false,
+          autoplaySpeed: 2000,
+          slidesToShow: 8,
+          slidesToScroll: 1,
+      };
+      this.bookSample = _.sample(booksRead, 20);
       bkCtrl.numRead = booksRead.length;
       bkCtrl.numReadPages = _.sum(_.pluck(booksRead, 'length'));
     });
