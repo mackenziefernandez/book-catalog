@@ -17,6 +17,7 @@ angular
     'ngSanitize',
     // 'ngTouch',
     'firebase',
+    'chart.js',
     'slickCarousel' //https://github.com/devmark/angular-slick-carousel
   ])
   .config(function ($routeProvider) {

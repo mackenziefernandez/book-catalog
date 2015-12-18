@@ -104,7 +104,7 @@ img {
   vertical-align: middle;
 }
 .totalBooks > h1 {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   font-size: 20vh;
 }
 .totalBooks > h5 {
@@ -126,6 +126,7 @@ img {
   width: 55%;
   text-align: right;
   position: relative;
+  margin: auto;
 }
 .numPages > h1, .numPages > h3 {
   position: absolute;
@@ -186,4 +187,7 @@ img {
   line-height: 45px;
   font-family: 'Open Sans', sans-serif;
   font-weight: bold;
+}
+.smaller-progress > * {
+  font-size: 15px;
 }

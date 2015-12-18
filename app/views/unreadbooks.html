@@ -6,7 +6,7 @@
     <div>
       <p>{{book.title}}</p>
       <p>{{book.authorFirst}} {{book.authorLast}} ({{book.length}} pages)</p>
-      <p>{{(book.length*250/unreadbooks.readingSpeed)/60 | number:2}} hours to read ({{(book.length*250/unreadbooks.readingSpeed) | number:0}} minutes)</p>
+      <p>{{(book.length*450/unreadbooks.readingSpeed)/60 | number:2}} hours to read ({{(book.length*450/unreadbooks.readingSpeed) | number:0}} minutes)</p>
     </div>
     <div class="button" ng-click="unreadbooks.markAsRead(book.$id)">Mark as Read</div>
   </div>

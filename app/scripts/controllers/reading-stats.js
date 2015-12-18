@@ -43,7 +43,7 @@ angular.module('bookCatalogApp')
           autoplay: true,
           draggable: false,
           autoplaySpeed: 2000,
-          slidesToShow: (this.booksThisMonthFinished.length/2),
+          slidesToShow: Math.floor(this.booksThisMonthFinished.length/2),
           slidesToScroll: 1
       };
       $('slick').width(135*(this.booksThisMonthFinished.length/2));
